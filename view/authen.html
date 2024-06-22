@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị tài khoản</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function redirectToAccountsPage() {
+            window.location.href = "accounts.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Trang quản trị tài khoản</h1>
+        <form action="#" method="post">
+            <label for="username">Tên người dùng:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Đăng nhập</button>
+        </form>
+        <script>
+            document.querySelector("form").addEventListener("submit", function(event) {
+                event.preventDefault();
+        
+                var usname = document.getElementById("username").value;
+                var pass = document.getElementById("password").value;
+                var data = {
+                    username: usname,
+                    password: pass,
+                }
+                fetch('http://192.168.1.14:1234/admin/login', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.status == 200){
+                        redirectToAccountsPage()
+                    }else{
+                        console.error('Error:', error);
+                        alert('Tài khoản hoặc mật khẩu không chính xác.');
+                    }
+                })
+                
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Đăng nhập không thành công. vui lòng thử lại');
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

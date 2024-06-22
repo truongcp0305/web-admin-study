@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách tài khoản</title>
+    <link rel="stylesheet" href="homeStyles.css">
+</head>
+<body>
+    <div class="open-menu-btn" onclick="openMenu()">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <div id="myMenu" class="menu">
+        <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a> -->
+        <a href="#" onclick="viewDashboard()">Danh sách</a>
+        <a href="#" onclick="viewCreateAcc()">Tạo tài khoản</a>
+        <a href="#" onclick="redirectToLoginPage()">Đăng xuất</a>
+    </div>
+    <div class="container" id="containerList">
+        <h1>Danh sách tài khoản</h1>
+        <div class="search-container">
+            <!-- <form class="search-form"> -->
+                <!-- <label for="search" class="search-lable">Search:</label> -->
+                <input type="text" id="search" name="query" class="search-input">
+                <button type="submit" class="search-btn" onclick="search()" style="background-color: teal;">Tìm</button>
+            <!-- </form> -->
+        </div>
+        <div class="container-list">
+            <ul id="accountList">
+                <!-- <li data-account="user1" data-username="Người dùng 1"><strong>Tên người dùng:</strong> user1 | <strong>Tên:</strong> Người dùng 1</li>
+                <li data-account="user2" data-username="Người dùng 2"><strong>Tên người dùng:</strong> user2 | <strong>Tên:</strong> Người dùng 2</li>
+                <li data-account="user3" data-username="Người dùng 3"><strong>Tên người dùng:</strong> user3 | <strong>Tên:</strong> Người dùng 3</li> -->
+                <!-- Thêm các tài khoản khác cần hiển thị -->
+            </ul>
+
+        </div>
+        <div class="pagination">
+            <button onclick="prevPage()" id="prev" disabled>
+                <i>&#9664;</i> <!-- Mũi tên trái -->
+                Trang trước
+            </button>
+            <button onclick="nextPage()" id="next">
+                Trang sau
+                <i>&#9654;</i> <!-- Mũi tên phải -->
+            </button>
+        </div>
+    </div>
+
+    <div id="containerAccount" class="container">
+        <h1>Tạo Tài Khoản</h1>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">Tên người dùng:</label>
+                <input type="text" class="form-input" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" class="form-input" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-input" id="email" name="email" required>
+            </div>
+            <div class="form-group" style="align-items: center; justify-content: center; display: flex;">
+                <button type="submit" style="width: 50%;">Đăng ký</button>
+            </div>
+        </form>
+    </div>
+
+    <div id ="submenu">
+        <div class="submenu">
+        </div>
+    </div>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Chi tiết tài khoản</h2>
+            <p><strong>Tên tài khoản:</strong> <span id="accountName"></span></p>
+            <p><strong>Tên người dùng:</strong> <span id="username"></span></p>
+            <div class="container-btn">
+                <i id="check-btn" class="fa-solid fa-check"></i>
+                <i id="trash-btn" class="fa-solid fa-trash" onclick="deleteAccount()"></i>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a2d239800a.js" crossorigin="anonymous"></script>
+    <script src="/control/script.js">
+
+    </script>
+</body>
+</html>

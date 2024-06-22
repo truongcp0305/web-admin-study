@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Ngăn cuộn ngang khi menu xuất hiện */
+        }
+
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .open-menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="open-menu-btn" onclick="openMenu()">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <div id="myMenu" class="menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("myMenu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("myMenu").style.width = "0";
+        }
+    </script>
+</body>
+</html>
